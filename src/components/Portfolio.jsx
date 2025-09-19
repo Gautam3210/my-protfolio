@@ -125,7 +125,7 @@ const Portfolio = () => {
         </section>
 
         <section>
-          <div className="flex items-center justify-center mb-8 relative">
+          <div className="flex items-center justify-center mb-8">
             <div className="flex items-center gap-4">
               <div className="h-1 w-12 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full"></div>
               <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">
@@ -133,14 +133,6 @@ const Portfolio = () => {
               </h2>
               <div className="h-1 w-12 bg-gradient-to-r from-brand-600 to-brand-500 rounded-full"></div>
             </div>
-            {!showAllProjects && projects.length > 3 && (
-              <button 
-                onClick={() => setShowAllProjects(true)}
-                className="absolute right-0 text-brand-300 hover:text-brand-200 transition-colors font-medium"
-              >
-                See all →
-              </button>
-            )}
           </div>
           <motion.div variants={container} initial="hidden" animate="show" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {displayedProjects.map((p) => (
@@ -165,6 +157,16 @@ const Portfolio = () => {
               </motion.article>
             ))}
           </motion.div>
+          {!showAllProjects && projects.length > 3 && (
+            <div className="flex justify-center mt-8">
+              <button 
+                onClick={() => setShowAllProjects(true)}
+                className="text-brand-300 hover:text-brand-200 transition-colors font-medium"
+              >
+                See all →
+              </button>
+            </div>
+          )}
         </section>
 
         <ContactForm />
